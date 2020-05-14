@@ -3,7 +3,7 @@ class ChatboxController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = Message.joins(:user)
+    @messages = Message.joins(:user).order('created_at').last(20)
   end
 
 end
